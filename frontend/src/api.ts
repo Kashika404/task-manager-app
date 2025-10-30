@@ -2,7 +2,8 @@
 import axios from 'axios';
 
 
-const API_URL = 'http://localhost:5112/api/tasks';
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5112';
+const API_URL = `${BASE_URL}/api/tasks`;
 
 
 export interface TaskItem {
