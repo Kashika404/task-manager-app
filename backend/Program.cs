@@ -21,7 +21,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       policy =>
                       {
-                          policy.WithOrigins("http://localhost:5173") 
+                          policy.WithOrigins("http://localhost:5173","https://task-manager-app-navy-xi.vercel.app/") 
                                 .AllowAnyHeader()
                                 .AllowAnyMethod();
                       });
