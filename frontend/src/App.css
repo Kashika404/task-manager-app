@@ -1,0 +1,228 @@
+/* In src/App.css */
+:root {
+  --brand-blue: #4A90E2;
+  --brand-red: #D0021B;
+  --light-red: #FBEAEB;
+  --text-dark: #333;
+  --text-light: #555;
+  --text-muted: #888;
+  --bg-color: #f0f4f8;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(255, 255, 255, 0.3);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background: var(--bg-color) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill-opacity="0.1" fill="%234A90E2"><rect x="50" width="50" height="50"/><rect y="50" width="50" height="50"/></g></svg>');
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  /* padding: 20px; */
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* padding-top: 40px; */
+}
+
+.task-manager-card {
+  width: 100%;
+  max-width: 500px;
+  background: var(--card-bg);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px 0 var(--shadow-color);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 24px 32px;
+}
+
+header {
+  margin-bottom: 24px;
+}
+
+.add-task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.add-task-form input[type="text"] {
+  flex-grow: 1;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 16px;
+  background: #fff;
+  color: var(--text-dark);
+}
+.add-task-form input[type="text"]::placeholder {
+  color: var(--text-muted);
+}
+
+.add-task-form button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--brand-blue);
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  padding: 0 18px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.add-task-form button:hover {
+  background-color: #3a7bc8;
+}
+
+.task-list-section h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.task-list-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-list-section li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  padding: 14px 16px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.task-toggle-button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-blue);
+  flex-shrink: 0;
+}
+
+.icon-circle {
+  color: #ccc;
+}
+.icon-check {
+  color: var(--brand-blue);
+}
+
+.task-description {
+  flex-grow: 1;
+  color: var(--text-light);
+  transition: color 0.2s ease;
+}
+
+.task-delete-button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  opacity: 0.3;
+  transition: all 0.2s ease;
+}
+
+.task-list-section li:hover .task-delete-button {
+  opacity: 1;
+  color: var(--brand-red);
+}
+
+/* Completed State */
+.task-list-section li.completed .task-description {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+
+/* In src/App.css (at the bottom) */
+
+.filter-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.filter-controls button {
+  background: none;
+  border: 1px solid #ddd;
+  color: var(--text-muted);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-controls button:hover {
+  background: #f4f4f4;
+  color: var(--text-dark);
+}
+
+.filter-controls button.active {
+  background: var(--brand-blue);
+  color: white;
+  border-color: var(--brand-blue);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.task-manager-card {
+
+  animation: fadeIn 0.5s ease-out;
+}
+
+
+.task-list-section li {
+
+  transition: background-color 0.2s ease, opacity 0.3s ease;
+}
+.task-list-section li:hover {
+  background: #f9f9f9;
+}
+
+
+.task-description {
+
+  transition: all 0.3s ease;
+}
+
+
+button {
+  transition: all 0.15s ease;
+}
+
+button:active {
+  transform: scale(0.97);
+}
